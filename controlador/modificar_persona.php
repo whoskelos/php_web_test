@@ -28,17 +28,26 @@ if (isset($_POST['enviar'])) {
         $errores[] = "Campo correo vacio";
     }
 
+    if (isset($_FILES['foto']) && $_FILES['foto']['tmp_name'] != "") {
+        $foto = file_get_contents($_FILES['foto']['tmp_name']);
+    }else {
+        $errores[] = "Error en la foto " .$_FILES['foto']['error'];
+    }
+
     if (empty($errores)) {
         $db = conectaDB();
-        $sql = "UPDATE persona SET nombre = ? , apellido = ? , dni = ? ,fecha_nac = ?, correo = ? WHERE id_persona='$id'";
+        $sql = "UPDATE persona SET nombre = ? , apellido = ? , dni = ? ,fecha_nac = ?, correo = ?, foto = ? WHERE id_persona='$id'";
         $resultado = $db->prepare($sql);
-        $query = $resultado->execute(array($nombre, $apellido, $dni, $fechNac, $correo));
+        $query = $resultado->execute(array($nombre, $apellido, $dni, $fechNac, $correo, $foto));
         if ($query == false) {
             echo "<div class='alert alert-danger'>Error al editar registro</div>";
         } else {
             header("Location: ../crud_php/index.php");
         }
     } else {
+        include "./modelo/fichero_errores.php";
+        $strErrores = implode("\r\n",$errores);
+        generarFichero($strErrores);
         echo "<div class='alert alert-warning'>Rellene todos los campos</div>";
     }
 }

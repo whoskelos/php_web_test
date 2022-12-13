@@ -6,7 +6,7 @@ if (isset($_GET["id"])) {
     if ($sql == false) {
         echo "<div class='alert alert-danger'>Error al eliminar registro</div>";
     } else {
-        echo "<div class='alert alert-success'>Registro eliminado correctamente</div>";
+        echo "<div class='alert alert-success px-3 '>Registro eliminado correctamente</div>";
     }
 }
 ?>

@@ -1,0 +1,21 @@
+/* .sesionLogin {
+    background: #59c2ff !important;
+    background: linear-gradient(to right, #51b9ff, #59c2ff) !important;
+} */
+
+/* body {
+    background: #ffe259;
+    background: linear-gradient(to right, #ffcd9b, #ddd6b0);
+} */
+
+.bg {
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+/* .btn-usuario {
+    background-color: #ffe259 !important;
+    color: #000 !important;
+    border: none !important;
+} */

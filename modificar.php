@@ -17,31 +17,38 @@ $sql = $db->query("SELECT * FROM persona WHERE id_persona='$id'");
 </head>
 
 <body>
-    <form class="col-4 p-3 m-auto" method="POST">
+    <form class="col-4 p-3 m-auto" method="POST" enctype="multipart/form-data">
         <h3 class="text-center alert alert-warning p-3">Editar datos</h3>
         <input type="hidden" name="id" value="<?php echo $_GET['id']?>">
         <?php
         include "../crud_php/controlador/modificar_persona.php";
         while ($datos = $sql->fetchObject()) { ?>
+            <div class="d-flex justify-content-center">
+                <img width="80" src="data:image/png;base64,<?php echo base64_encode($datos->foto); ?>" alt="foto de persona">
+            </div>
             <div class="mb-3">
-                <label for="txtNombre" class="form-label">Nombre persona</label>
+                <label for="txtNombre" class="form-label fw-bold">Nombre persona</label>
                 <input type="text" class="form-control" id="txtNombre" name="txtNombre" aria-describedby="emailHelp" value="<?php echo $datos->nombre ?>">
             </div>
             <div class="mb-3">
-                <label for="txtApellido" class="form-label">Apellido persona</label>
+                <label for="txtApellido" class="form-label fw-bold">Apellido persona</label>
                 <input type="text" class="form-control" id="txtApellido" name="txtApellido" aria-describedby="emailHelp" value="<?php echo $datos->apellido ?>">
             </div>
             <div class="mb-3">
-                <label for="txtDNI" class="form-label">DNI persona</label>
+                <label for="txtDNI" class="form-label fw-bold">DNI persona</label>
                 <input type="text" class="form-control" id="txtDNI" name="txtDNI" aria-describedby="emailHelp" value="<?php echo $datos->dni ?>">
             </div>
             <div class="mb-3">
-                <label for="txtFechaNac" class="form-label">Fecha nacimiento persona</label>
+                <label for="txtFechaNac" class="form-label fw-bold">Fecha nacimiento persona</label>
                 <input type="date" class="form-control" id="txtFechaNac" name="txtFechaNac" aria-describedby="emailHelp" value="<?php echo $datos->fecha_nac ?>">
             </div>
             <div class="mb-3">
-                <label for="txtCorreo" class="form-label">Correo persona</label>
+                <label for="txtCorreo" class="form-label fw-bold">Correo persona</label>
                 <input type="text" class="form-control" id="txtCorreo" name="txtCorreo" aria-describedby="emailHelp" value="<?php echo $datos->correo ?>">
+            </div>
+            <div class="mb-3">
+                        <label for="foto" class="form-label fw-bold">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp">
             </div>
         <?php
         }

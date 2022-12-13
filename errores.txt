@@ -1,0 +1,16 @@
+Campo nombre vacio
+Campo apellido vacio
+Error en la foto 4
+Error en la foto 4
+Campo nombre vacio
+Campo apellido vacio
+Campo dni vacio
+Campo fecha nacimiento vacio
+Campo correo vacio
+Error en la foto 4
+Campo nombre vacio
+Campo apellido vacio
+Campo dni vacio
+Campo fecha nacimiento vacio
+Campo correo vacio
+Error en la foto 4
